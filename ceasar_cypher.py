@@ -1,3 +1,5 @@
+Tomás Souto 350335816
+
 def cypher(word, num):
     ''' will shift the characters depending on the key
 
@@ -7,19 +9,22 @@ def cypher(word, num):
 
     return: word after being encrypted, string value
     '''
+    num %= 26
     answer = []
     remainder = 0
 
     for i in word:
             remainder = 0
-            if (ord(i) + num) < 97:
+            if (ord(i) + num) < 97 and i.isalpha():
                 remainder = (ord(i) + num) - 97
                 answer.append(chr(123 + remainder))
-            elif (ord(i) + num) > 122:
+            elif (ord(i) + num) > 122 and i.isalpha():
                 remainder = (ord(i) + num) - 122
                 answer.append(chr(96 + remainder))
-            else:
+            elif i.isalpha():
                  answer.append(chr(ord(i) + num))
+            else: 
+                answer.append(i)
     
     final = "".join(map(str, answer))
     return(final)
