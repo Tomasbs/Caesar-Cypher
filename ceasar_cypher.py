@@ -29,11 +29,14 @@ def cypher(word, num):
     final = "".join(map(str, answer))
     return(final)
 
-test_str = input("")
-test_num = int(input(""))
+user_input = input("")
+
+data = user_input.split(", ")
+shift = int(data[1])
+word = data[0]
 
 
-print(cypher(test_str, test_num))
+print(cypher(word, shift))
 
 #Commit Testing
 #Banananas
